@@ -4,8 +4,6 @@ const DoctorControllers = require("../controllers/AddDoctor.controller");
 const autMiddleware = require("../middleware/auth.middleware");
 const singleUpload = require("../middleware/multer");
 
-
-
 router.post(
   "/addDoctor",
   autMiddleware,
@@ -13,9 +11,7 @@ router.post(
   DoctorControllers.AddDoctor,
 );
 
-
 router.get("/getDoctor", DoctorControllers.ViewallDoctor);
-
 
 router.get("/getDoctor/:id", autMiddleware, DoctorControllers.GetDoctorById);
 
