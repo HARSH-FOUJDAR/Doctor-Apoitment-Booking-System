@@ -134,7 +134,7 @@ exports.getAllapoitments = async (req, res) => {
     let { doctorId } = req.params;
 
     const appointments = await apoitmentmodel
-      .find({ doctor: doctorId })
+      .find()
       .populate("patient", "name email mobileNumber")
       .sort({ appointmentDate: 1 });
 
