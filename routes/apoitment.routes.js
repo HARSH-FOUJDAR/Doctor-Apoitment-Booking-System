@@ -24,6 +24,7 @@ router.put(
   ApoitmentControllers.updateAppointmentStatus,
 );
 
+router.get("/paytientdetails/:id", authMiddleware,ApoitmentControllers.getpatientDetails)
 
 
 module.exports = router;

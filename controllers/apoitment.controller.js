@@ -131,7 +131,6 @@ exports.getMyApoitments = async (req, res) => {
 
 exports.getAllapoitments = async (req, res) => {
   try {
-   
     const appointments = await apoitmentmodel
       .find()
       .sort({ appointmentDate: 1 });
@@ -145,6 +144,30 @@ exports.getAllapoitments = async (req, res) => {
     res.status(500).json({
       message: "Server Error",
       success: false,
+    });
+  }
+};
+
+exports.getpatientDetails = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const appoitment = await apoitmentmodel.findById(id);
+
+    if (!appoitment) {
+      return res.status(404).json({
+        success: false,
+        message: "Apoitment not Found",
+      });
+    }
+    res.status(200).json({
+      success: true,
+      appoitment,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
     });
   }
 };
