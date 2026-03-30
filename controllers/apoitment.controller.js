@@ -131,8 +131,7 @@ exports.getMyApoitments = async (req, res) => {
 
 exports.getAllapoitments = async (req, res) => {
   try {
-    let { doctorId } = req.params;
-
+   
     const appointments = await apoitmentmodel
       .find()
       .populate("patient", "name email mobileNumber")
