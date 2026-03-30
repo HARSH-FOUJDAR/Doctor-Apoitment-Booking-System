@@ -1,5 +1,5 @@
 const apoitmentmodel = require("../models/apoitmentmodel");
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 exports.ApoitmentForm = async (req, res) => {
   console.log("clicked");
 
@@ -129,11 +129,9 @@ exports.getMyApoitments = async (req, res) => {
   }
 };
 
-exports.getDoctorAppointments = async (req, res) => {
+exports.getAllapoitments = async (req, res) => {
   try {
     let { doctorId } = req.params;
-
-    doctorId = doctorId.trim(); 
 
     const appointments = await apoitmentmodel
       .find({ doctor: doctorId })

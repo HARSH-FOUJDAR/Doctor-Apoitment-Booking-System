@@ -9,6 +9,11 @@ router.post(
   ApoitmentControllers.ApoitmentForm,
 );
 router.get(
+  "/allAppointments",
+  authMiddleware,
+  ApoitmentControllers.getAllapoitments,
+);
+router.get(
   "/myappoitment/:patientId",
   authMiddleware,
   ApoitmentControllers.getMyApoitments,
@@ -19,10 +24,6 @@ router.put(
   ApoitmentControllers.updateAppointmentStatus,
 );
 
-router.get(
-  "/doctor/:doctorId",
-  authMiddleware,
-  ApoitmentControllers.getDoctorAppointments ,
-);
+
 
 module.exports = router;
