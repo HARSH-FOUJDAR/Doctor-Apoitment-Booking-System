@@ -25,7 +25,7 @@ router.put(
 );
 
 router.get(
-  "/paytientdetails/:id",
+  "/patientdetails/:id",
   authMiddleware,
   ApoitmentControllers.getpatientDetails,
 );
