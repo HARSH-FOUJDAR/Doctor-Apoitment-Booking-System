@@ -4,11 +4,12 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const dbConnect = require("./config/db");
 const cors = require("cors");
+const Stripe = require("stripe");
 dotenv.config();
 const AuthRoutes = require("./routes/Auth.routes");
 const DoctorRoutes = require("./routes/Doctor.routes");
-const PaymentRoutes = require("./routes/Patment.routes");
-const AppoitmentRoutes = require('./routes/apoitment.routes')
+const PaymentRoutes = require("./routes/Payment.routes");
+const AppoitmentRoutes = require("./routes/apoitment.routes");
 
 app.use(express.json());
 
@@ -20,12 +21,13 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 
 app.use("/auth", AuthRoutes);
 app.use("/doctor", DoctorRoutes);
 app.use("/Payment", PaymentRoutes);
-app.use("/appoitmet", AppoitmentRoutes)
+app.use("/appoitmet", AppoitmentRoutes);
 
 app.use("/", (req, res) => {
   res.json("Server Start Doctor Apoitment System");

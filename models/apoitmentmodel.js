@@ -58,13 +58,32 @@ const appointmentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-
+    amount: {
+      type: Number,
+      require: true,
+    },
+    currency: {
+      type: String,
+      default: "inr",
+    },
+    paymentIntentId: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    clientSecret: {
+      type: String,
+      required: true,
+    },
     status: {
       type: String,
       enum: ["pending", "approved", "rejected"],
       default: "pending",
     },
-
+    paymentMethod: {
+      type: String,
+      default: "card",
+    },
     paymentStatus: {
       type: String,
       enum: ["unpaid", "paid"],
