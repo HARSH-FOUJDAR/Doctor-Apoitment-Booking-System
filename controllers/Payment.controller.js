@@ -39,7 +39,7 @@ exports.CreatePayemnt = async (req, res) => {
       patientName,
       patientEmail,
       amount,
-      currency:"inr",
+      currency: "inr",
       paymentIntentId: paymentIntent.id,
       clientSecret: paymentIntent.client_secret,
       status: paymentIntent.status,
