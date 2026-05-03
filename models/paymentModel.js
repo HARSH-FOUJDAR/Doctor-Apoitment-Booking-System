@@ -1,6 +1,6 @@
+
+
 const mongoose = require("mongoose");
-
-
 const PaymentSchema = new mongoose.Schema(
   {
     appointmentId: {
@@ -20,11 +20,11 @@ const PaymentSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    Currency: {
+    currency: {
       type: String,
-      Default: "inr",
+      default: "inr",
     },
-    paymentIntentId :{
+    paymentIntentId: {
       type: String,
       required: true,
       unique: true,
@@ -32,7 +32,6 @@ const PaymentSchema = new mongoose.Schema(
     clientSecret: {
       type: String,
       required: true,
-      default: "pending",
     },
     status: {
       type: String,
@@ -44,7 +43,8 @@ const PaymentSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true },
+  { timestamps: true }
 );
+
 
 module.exports = mongoose.model("Payment", PaymentSchema);
