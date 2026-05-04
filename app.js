@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const dbConnect = require("./config/db");
 const cors = require("cors");
 const Stripe = require("stripe");
+
 dotenv.config();
 const AuthRoutes = require("./routes/Auth.routes");
 const DoctorRoutes = require("./routes/Doctor.routes");
@@ -21,7 +22,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
 
 
 app.use("/auth", AuthRoutes);
