@@ -4,6 +4,7 @@ const PaymentControllers = require("../controllers/Payment.controller");
 const AuthMiddleware = require("../middleware/auth.middleware");
 
 router.post("/createPayment", PaymentControllers.CreatePayemnt);
-router.get("/paymentstatus/:paymentIntentId", AuthMiddleware, PaymentControllers.GetPayemnt);
+router.post("/paymentdetails", PaymentControllers.PaymentDetails);
+router.get("/paymentstatus/:paymentIntentId", AuthMiddleware, PaymentControllers.GetPaymentStatus);
 
 module.exports = router;

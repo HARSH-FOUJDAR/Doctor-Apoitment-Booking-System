@@ -27,4 +27,9 @@ exports.CreatePayemnt = async (req, res) => {
   }
 };
 
-exports.GetPayemnt = async (req, res) => {};
+exports.GetPaymentStatus = async (req, res) => {};
+
+
+exports.PaymentDetails = async (req, res) => {
+
+}
