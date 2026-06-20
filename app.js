@@ -23,8 +23,6 @@ app.use(
   }),
 );
 
-
-
 app.use("/auth", AuthRoutes);
 app.use("/doctor", DoctorRoutes);
 app.use("/Payment", PaymentRoutes);
