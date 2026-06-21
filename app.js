@@ -5,9 +5,17 @@ const dotenv = require("dotenv");
 const dbConnect = require("./config/db");
 const cors = require("cors");
 const Stripe = require("stripe");
+const pool = require("./config/mysqlDb");
+
+
+
+
 
 dotenv.config();
+
+
 const AuthRoutes = require("./routes/Auth.routes");
+const EmergencyRoutes = require("./routes/Emergency.routes");
 const DoctorRoutes = require("./routes/Doctor.routes");
 const PaymentRoutes = require("./routes/Payment.routes");
 const AppoitmentRoutes = require("./routes/apoitment.routes");
@@ -22,7 +30,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
-
+app.use("/emergency", EmergencyRoutes);
 app.use("/auth", AuthRoutes);
 app.use("/doctor", DoctorRoutes);
 app.use("/Payment", PaymentRoutes);
