@@ -3,6 +3,7 @@ const mysql = require("mysql2/promise");
 exports.ViewAllEmergency = async (req, res) => {
   db.execute("SELECT * FROM mobilenumber", (err, rows) => {
     if (err) {
+      console.log(err);
       return res.status(500).json({
         success: false,
         message: err.message,
