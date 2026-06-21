@@ -11,8 +11,8 @@ exports.ViewAllEmergency = async (req, res) => {
     }
 
     return res.status(200).json({
-      success: true,
-      mobileNumbers: rows,
+        success: true,
+        mobileNumbers: rows,
     });
   });
 };
