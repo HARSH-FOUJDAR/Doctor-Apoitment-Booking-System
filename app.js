@@ -1,18 +1,13 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+dotenv.config();
+const mongoose = require("mongoose");
+
 const dbConnect = require("./config/db");
 const cors = require("cors");
 const Stripe = require("stripe");
 const pool = require("./config/mysqlDb");
-
-
-
-
-
-dotenv.config();
-
 
 const AuthRoutes = require("./routes/Auth.routes");
 const EmergencyRoutes = require("./routes/Emergency.routes");
