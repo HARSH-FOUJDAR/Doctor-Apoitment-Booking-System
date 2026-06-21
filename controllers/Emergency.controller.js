@@ -1,5 +1,5 @@
 const db = require("../config/mysqlDb");
-const mysql = require("mysql2/promise");
+
 exports.ViewAllEmergency = async (req, res) => {
   db.execute("SELECT * FROM mobilenumber", (err, rows) => {
     if (err) {
